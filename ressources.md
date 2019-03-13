@@ -28,6 +28,27 @@ function mp(v,a,b,c,d)
  return r
 end
 
+### Screen shake
+```
+shake=0
+function _draw()
+ do_shake()
+end
+
+--shake the entire screen
+function do_shake()
+  local shake_x=rnd(16)-8
+  local shake_y=rnd(16)-8
+  shake_x*=shake
+  shake_y*=shake
+  camera(0,shake_y)
+  shake=shake*0.91
+  if(shake<0.05) then
+    shake=0
+  end
+end
+```
+
 
 ====================
 particule 360
