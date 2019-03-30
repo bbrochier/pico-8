@@ -1,5 +1,10 @@
 ### Suppression d'element dans un tableau
 => lire le tableau à l'envers pour éviter les décalages
+```
+for i=#my_table,1,-1 do
+  del(my_table,my_value)
+ end
+```
 
 ### Action a effectuer x% du temps
 ```
@@ -9,6 +14,13 @@ if (random(1) > 0.5)
 ### Random element from table
 ```
 element=table[flr(rnd(#table)+1)]
+```
+
+### Random between 2 numbers
+```
+min_val=2
+max_val=8
+rnd(max_val)+min_val
 ```
 
 ### Debug function
