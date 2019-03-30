@@ -17,10 +17,11 @@ element=table[flr(rnd(#table)+1)]
 ```
 
 ### Random between 2 numbers
+call rnd() with the size of the range, then add the minimum
 ```
-min_val=2
-max_val=8
-rnd(max_val)+min_val
+x = rnd(32) + 64       -- a random number between 64 and 96
+scale = rnd(20) - 10   -- a random number between -10 and 10
+die = flr(rnd(6)) + 1  -- a random integer between 1 and 6
 ```
 
 ### Debug function
