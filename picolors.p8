@@ -159,16 +159,18 @@ end
 
 function update_smoke(s,index)
  s.age+=1*s.speed
- s.r=mp(s.age,0,s.max_age,0,s.max_r)
- if(s.age>=s.max_age) then
+ if(s.age<=s.max_age/2) then
+  s.r=mp(s.age,0,s.max_age/2,0,s.max_r)
+ else
+  s.r=mp(s.age,s.max_age/2,s.max_age,s.max_r,0)     
+ end
+ if(s.age>s.max_age) then
   del(smoke_parts,s)
  end
 end
 
 function draw_smoke(s)
- if(s.age<s.max_age) then
-  circfill(s.x,s.y,s.r,s.col)
- end
+ circfill(s.x,s.y,s.r,s.col)
 end
 -->8
 --play state
@@ -251,6 +253,7 @@ function lost()
  for i=1,100 do
   add_smoke(rnd(10)+122,rnd(10)+cpu.lvl*9+1)
   add_smoke(rnd(10)-4,rnd(10)+cpu.lvl*9+1)
+  --add_smoke(rnd(130)-4,rnd(10)+5)
  end
  if(cpu.lvl==12) then
   for i=#smoke_parts,1,-1 do
